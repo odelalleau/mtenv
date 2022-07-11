@@ -82,6 +82,8 @@ class EnvToMTEnv(MTEnv):
         env_seeds = self.env.seed(seed)
         if isinstance(env_seeds, list):
             return [seed] + env_seeds
+        else:
+            assert env_seeds is None
         return [seed]
 
     def render(self, mode: str = "human", **kwargs: Dict[str, Any]) -> Any:
